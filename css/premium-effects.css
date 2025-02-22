@@ -1,0 +1,203 @@
+/* Luxury Effects and Animations */
+
+/* Золотой градиентный текст */
+.premium-text {
+    background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: goldShine 3s linear infinite;
+}
+
+@keyframes goldShine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Эффект размытия для модальных окон */
+.blur-backdrop {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Декоративные элементы */
+.decorative-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--gold);
+    opacity: 0.5;
+}
+
+.decorative-corner.top-left {
+    top: 10px;
+    left: 10px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.decorative-corner.top-right {
+    top: 10px;
+    right: 10px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.decorative-corner.bottom-left {
+    bottom: 10px;
+    left: 10px;
+    border-right: none;
+    border-top: none;
+}
+
+.decorative-corner.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    border-left: none;
+    border-top: none;
+}
+
+/* Эффект подсветки при наведении */
+.glow-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.3) 0%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+}
+
+.glow-effect:hover::before {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Анимация появления элементов при скролле */
+.fade-in-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Эффект волны при клике */
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Премиальные карточки товаров */
+.premium-card {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #f3f3f3);
+    box-shadow: 
+        20px 20px 60px #d9d9d9,
+        -20px -20px 60px #ffffff;
+}
+
+.premium-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(45deg, var(--gold), transparent);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* Эффект параллакса для изображений */
+.parallax-image {
+    transform: translateZ(0);
+    transition: transform 0.3s ease;
+}
+
+.parallax-image:hover {
+    transform: translateZ(50px);
+}
+
+/* Стильные чекбоксы */
+.luxury-checkbox {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+}
+
+.luxury-checkbox input {
+    position: absolute;
+    opacity: 0;
+}
+
+.luxury-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.luxury-checkbox input:checked ~ .checkmark {
+    background: var(--gold);
+}
+
+.luxury-checkbox .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.luxury-checkbox input:checked ~ .checkmark::after {
+    opacity: 1;
+} 
