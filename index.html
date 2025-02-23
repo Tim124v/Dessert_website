@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sweet Dreams - ekskluzywne torty na zamówienie">
-    <title>Sweet Dreams | Artystyczne Torty</title>
+    <title>LUdziarnia | Wyjątkowe Torty</title>
 
     <link rel="stylesheet" href="./css/premium-effects.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,49 +12,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/effects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
-        <nav class="nav-container">
-            <div class="logo">Sweet Dreams</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Główna</a></li>
-                <li><a href="catalog.html">Torty</a></li>
-                <li><a href="#about">O nas</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./images/logo/logo.jpg" alt="LUdziarnia Logo">
+                        <div class="logo-text"><span>L</span><span>U</span>dziarnia</div>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">O nas</a></li>
+                    <li><a href="catalog.html">Torty</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-slider">
-                <div class="slide" style="background-image: url('./images/cakes/wedding/1.jpg')">
-                    <div class="hero-content">
-                        <h1>Sweet Dreams</h1>
-                        <p>Wyjątkowe torty na wyjątkowe okazje</p>
-                        <a href="catalog.html" class="btn-primary">Zobacz nasze torty</a>
-                    </div>
+            <img src="images/close34.jpg" alt="background">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1><span>L</span><span>U</span>dziarnia</h1>
+                    <p>Wyjątkowe torty na wyjątkowe okazje</p>
+                    <a href="catalog.html" class="btn-primary">ZOBACZ NASZE TORTY</a>
                 </div>
             </div>
         </section>
 
         <section class="features">
+            <img src="images/top.jpg" alt="background" class="features-bg">
+            <div class="features-overlay"></div>
             <div class="container">
-                <div class="feature-card">
-                    <div class="feature-icon">★</div>
-                    <h3>Najwyższa jakość</h3>
-                    <p>Tylko naturalne składniki</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">♥</div>
-                    <h3>Indywidualne podejście</h3>
-                    <p>Każdy tort tworzony na zamówienie</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">✦</div>
-                    <h3>15 lat doświadczenia</h3>
-                    <p>Tysiące zadowolonych klientów</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">★</span>
+                        <h3>Najwyższa jakość</h3>
+                        <p>Tylko naturalne składniki</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">♥</span>
+                        <h3>Indywidualne podejście</h3>
+                        <p>Każdy tort tworzony na zamówienie</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✦</span>
+                        <h3>15 lat doświadczenia</h3>
+                        <p>Tysiące zadowolonych klientów</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -111,16 +122,75 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Sweet Dreams</div>
-                <div class="footer-links">
-                    <a href="index.html">Główna</a>
-                    <a href="catalog.html">Torty</a>
-                    <a href="#about">O nas</a>
-                    <a href="#contact">Kontakt</a>
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="./images/logo/logo.jpg" alt="LUdziarnia Logo">
+                        <span class="logo-text"><span>L</span><span>U</span>dziarnia</span>
+                    </div>
+                    <div class="brand-slogan">
+                        <p>Wyjątkowe torty na wyjątkowe okazje</p>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h3 class="footer-heading">Menu</h3>
+                    <ul class="footer-menu">
+                        <li><a href="#about">O nas</a></li>
+                        <li><a href="catalog.html">Torty</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 class="footer-heading">Kontakt</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 10.999H22C22 5.869 18.127 2 12.99 2V4C17.052 4 20 6.943 20 10.999Z" fill="currentColor"/>
+                                <path d="M13 8.999H15C15 7.794 13.206 6 12.001 6V8C12.795 8 13 8.799 13 8.999Z" fill="currentColor"/>
+                                <path d="M16.422 14.443C15.228 13.187 13.039 12.775 11.621 13.775C10.156 14.819 9.392 16.325 9.422 17.899C9.434 18.464 9.556 19.033 9.776 19.557L7.731 21.603C7.32 22.014 7.499 22.719 8.053 22.866C8.935 23.104 9.884 23.234 10.891 23.234C15.047 23.234 18.424 19.855 18.424 15.699C18.424 15.446 18.41 15.195 18.387 14.947L16.422 14.443Z" fill="currentColor"/>
+                            </svg>
+                            <span>+48 123 456 789</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM19.6 8.25L12.53 12.67C12.21 12.87 11.79 12.87 11.47 12.67L4.4 8.25C4.15 8.09 4 7.82 4 7.53C4 6.86 4.73 6.46 5.3 6.81L12 11L18.7 6.81C19.27 6.46 20 6.86 20 7.53C20 7.82 19.85 8.09 19.6 8.25Z" fill="currentColor"/>
+                            </svg>
+                            <span>info@ludziarnia.pl</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+                            </svg>
+                            <span>ul. Przykładowa 1, Warszawa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-social">
+                    <h3 class="footer-heading">Social Media</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com/ludziarnia" target="_blank" class="social-link instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C14.717 2 15.056 2.01 16.122 2.06C17.187 2.11 17.912 2.277 18.55 2.525C19.21 2.779 19.766 3.123 20.322 3.678C20.8305 4.1779 21.224 4.78259 21.475 5.45C21.722 6.087 21.89 6.813 21.94 7.878C21.987 8.944 22 9.283 22 12C22 14.717 21.99 15.056 21.94 16.122C21.89 17.187 21.722 17.912 21.475 18.55C21.2247 19.2178 20.8311 19.8226 20.322 20.322C19.822 20.8303 19.2173 21.2238 18.55 21.475C17.913 21.722 17.187 21.89 16.122 21.94C15.056 21.987 14.717 22 12 22C9.283 22 8.944 21.99 7.878 21.94C6.813 21.89 6.088 21.722 5.45 21.475C4.78233 21.2245 4.17753 20.8309 3.678 20.322C3.16941 19.8222 2.77593 19.2175 2.525 18.55C2.277 17.913 2.11 17.187 2.06 16.122C2.013 15.056 2 14.717 2 12C2 9.283 2.01 8.944 2.06 7.878C2.11 6.812 2.277 6.088 2.525 5.45C2.77524 4.78218 3.1688 4.17732 3.678 3.678C4.17767 3.16923 4.78243 2.77573 5.45 2.525C6.088 2.277 6.812 2.11 7.878 2.06C8.944 2.013 9.283 2 12 2Z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com/ludziarnia" target="_blank" class="social-link facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 16.84 5.44 20.87 10 21.8V15H8V12H10V9.5C10 7.57 11.57 6 13.5 6H16V9H14C13.45 9 13 9.45 13 10V12H16V15H13V21.95C18.05 21.45 22 17.19 22 12Z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="https://tiktok.com/@ludziarnia" target="_blank" class="social-link tiktok">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M16.6 5.82C15.9165 5.03962 15.5397 4.03743 15.54 3H12.45V15.4C12.4494 16.071 12.2098 16.7181 11.7776 17.2255C11.3454 17.733 10.7474 18.0683 10.0849 18.1789C9.42241 18.2896 8.74383 18.1689 8.15935 17.8373C7.57487 17.5058 7.12342 16.9843 6.88 16.37C6.63658 15.7558 6.61791 15.0782 6.82682 14.4513C7.03572 13.8245 7.46075 13.2862 8.02583 12.9324C8.59091 12.5786 9.2645 12.4323 9.93089 12.5182C10.5973 12.604 11.2173 12.9168 11.69 13.4V10.23C10.8689 10.1314 10.0409 10.2254 9.26415 10.5058C8.48741 10.7862 7.78353 11.2459 7.20677 11.8504C6.63001 12.4548 6.19425 13.1877 5.93508 13.9881C5.67591 14.7884 5.59972 15.6368 5.71227 16.4688C5.82482 17.3008 6.12305 18.0926 6.58577 18.7873C7.04849 19.4819 7.66407 20.0614 8.38769 20.4848C9.11131 20.9082 9.92325 21.1646 10.7605 21.2355C11.5977 21.3064 12.4414 21.19 13.2281 20.8947C14.0148 20.5993 14.7236 20.1326 15.3061 19.5266C15.8886 18.9206 16.3304 18.1899 16.6 17.39C16.8696 16.5901 16.9601 15.7397 16.865 14.9V8.92C18.2675 9.9685 19.9348 10.5399 21.65 10.56V7.47C20.0453 7.46099 18.5013 6.86092 17.3 5.77L16.6 5.82Z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2024 Sweet Dreams. Wszystkie prawa zastrzeżone.</p>
+                <p>&copy; 2024 LUdziarnia. Wszystkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
