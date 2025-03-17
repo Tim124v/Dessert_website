@@ -128,30 +128,6 @@ nav {
     animation: fadeIn 0.5s ease-out;
 }
 
-.logo::first-letter {
-    font-size: 3.5rem;
-    color: #ff1493;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-}
-
-.logo-text {
-    position: relative;
-    display: inline-block;
-}
-
-.logo-text::first-letter {
-    font-size: 3.2rem;
-    color: #ff69b4;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-}
-
-.logo-rest {
-    background: linear-gradient(45deg, #ff69b4, #ff1493);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .logo:hover {
     transform: scale(1.05);
 }
@@ -224,7 +200,7 @@ nav {
 }
 
 .hero {
-    background-image: url('../images/backgrounds/top.jpg');
+    background-image: url('/images/backgrounds/top.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -237,7 +213,6 @@ nav {
     justify-content: center;
     align-items: center;
 }
-
 
 .hero::before {
     content: '';
@@ -302,7 +277,7 @@ nav {
 }
 
 .btn {
-    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    background: #1a365d;
     color: white;
     padding: 0.8rem 2rem;
     border: none;
@@ -318,7 +293,7 @@ nav {
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.2);
 }
 
 .btn::before {
@@ -376,12 +351,10 @@ nav {
 }
 
 .cake-card {
+    min-height: 400px;
     background: white;
     border: 1px solid rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1074,10 +1047,25 @@ main {
 
 /* Оптимизация для высоких экранов */
 @media screen and (min-height: 800px) {
-    .hero {
+    .hero {y
         min-height: 60vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 }
+
+/* Обновленные стили для изображений в карточках */
+.cake-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Обновленные стили для логотипа */
+.logo-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  

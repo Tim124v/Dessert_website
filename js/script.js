@@ -2,21 +2,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const menu = document.querySelector('.menu');
 
-    if (!mobileMenuBtn || !menu) return;
-
-
-    const toggleMenu = () => {
+    mobileMenuBtn.addEventListener('click', function() {
         menu.classList.toggle('active');
         mobileMenuBtn.classList.toggle('active');
-    };
-
-    mobileMenuBtn.addEventListener('click', toggleMenu);
-    menu.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-            toggleMenu();
-        }
     });
 
+
+    const menuLinks = document.querySelectorAll('.menu a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+        });
+    });
 
     const styles = `
         .mobile-menu-btn {
@@ -56,34 +54,4 @@ document.addEventListener('DOMContentLoaded', function() {
     const styleSheet = document.createElement('style');
     styleSheet.textContent = styles;
     document.head.appendChild(styleSheet);
-
-    // Объединить обработчики событий для кнопок
-    const handleScroll = (e) => {
-        e.preventDefault();
-        const orderSection = document.getElementById('order');
-        orderSection.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-        });
-    };
-
-    // Обработчик для кнопок в каталоге
-    document.querySelectorAll('.catalog .cake-card .btn').forEach(button => {
-        button.addEventListener('click', handleScroll);
-    });
-
-    // Обработчик для кнопки в hero секции
-    const heroButton = document.querySelector('.hero .btn');
-    if (heroButton) {
-        heroButton.addEventListener('click', handleScroll);
-    }
-
-    // Добавим обработчик для плавной загрузки изображений
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.classList.add('loading');
-        img.onload = function() {
-            img.classList.remove('loading');
-        };
-    });
 }); 
