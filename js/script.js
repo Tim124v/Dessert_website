@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!mobileMenuBtn || !menu) return;
 
+
     const toggleMenu = () => {
         menu.classList.toggle('active');
         mobileMenuBtn.classList.toggle('active');
@@ -55,15 +56,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const styleSheet = document.createElement('style');
     styleSheet.textContent = styles;
     document.head.appendChild(styleSheet);
-}); 
 
-document.querySelectorAll('.catalog .cake-card .btn').forEach(button => {
-    button.addEventListener('click', (e) => {
+    // Объединить обработчики событий для кнопок
+    const handleScroll = (e) => {
         e.preventDefault();
         const orderSection = document.getElementById('order');
         orderSection.scrollIntoView({ 
             behavior: 'smooth',
             block: 'start'
         });
+    };
+
+    // Обработчик для кнопок в каталоге
+    document.querySelectorAll('.catalog .cake-card .btn').forEach(button => {
+        button.addEventListener('click', handleScroll);
+    });
+
+    // Обработчик для кнопки в hero секции
+    const heroButton = document.querySelector('.hero .btn');
+    if (heroButton) {
+        heroButton.addEventListener('click', handleScroll);
+    }
+
+    // Добавим обработчик для плавной загрузки изображений
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.classList.add('loading');
+        img.onload = function() {
+            img.classList.remove('loading');
+        };
     });
 }); 
