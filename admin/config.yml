@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
+local_backend: true
+
 media_folder: "images/catalog"
 public_folder: "/images/catalog"
 
@@ -9,9 +11,11 @@ collections:
   - name: "products"
     label: "Products"
     label_singular: "Product"
-    folder: "content/products"
+    folder: "data"
     create: true
     slug: "{{slug}}"
+    format: "json"
+    extension: "json"
     fields:
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Price (zł)", name: "price", widget: "number", value_type: "int" }
