@@ -1,0 +1,13 @@
+export const products = [
+  { id: 1, name: "Tort czekoladowy", price: 150, img: "./images/catalog/cake.jpg", category: "tradycyjne", description: "Klasyczny tort czekoladowy" },
+  { id: 2, name: "Tort owocowy", price: 250, img: "./images/catalog/cake1.jpg", category: "owocowe", description: "Lekki tort z owocami" },
+  { id: 3, name: "Tort urodzinowy", price: 350, img: "./images/catalog/cake10.jpg", category: "urodzinowe", description: "Elegancki tort na specjalne okazje" },
+  { id: 4, name: "Tort karmelowy", price: 220, img: "./images/catalog/cake3.jpg", category: "musowe", description: "Biszkopt z solonym karmelem" },
+  { id: 5, name: "Tort truskawkowy", price: 230, img: "./images/catalog/cake4.jpg", category: "owocowe", description: "Krem truskawkowy" },
+  { id: 6, name: "Tort orzechowy", price: 240, img: "./images/catalog/cake6.jpg", category: "tradycyjne", description: "Prażone orzechy i karmel" },
+  { id: 7, name: "Tort rafaello", price: 260, img: "./images/catalog/cake9.jpg", category: "musowe", description: "Kokos i biała czekolada" },
+  { id: 8, name: "Tort bezowy", price: 200, img: "./images/catalog/cake7.jpg", category: "bezowe", description: "Pavlova z owocami" },
+  { id: 9, name: "Tort dziecięcy", price: 280, img: "./images/catalog/cake8.jpg", category: "dziecięce", description: "Kolorowe dekoracje" }
+];
+
+

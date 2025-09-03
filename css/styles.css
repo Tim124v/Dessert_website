@@ -49,6 +49,56 @@ nav {
     border-radius: 50%;
 }
 
+/* Cart button */
+.cart-btn {
+    position: relative;
+    margin-left: auto;
+    margin-right: 16px;
+    color: #1a365d;
+    text-decoration: none;
+}
+
+.cart-btn i {
+    font-size: 20px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #ff69b4;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+    padding: 3px 6px;
+    border-radius: 999px;
+    min-width: 18px;
+    text-align: center;
+}
+
+.cart-sum { vertical-align: middle; }
+
+/* Mini cart */
+.mini-cart {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 320px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    padding: 12px;
+    display: none;
+    z-index: 1200;
+}
+.mini-cart.active { display: block; }
+.mini-cart-header { font-weight:700; margin-bottom: 8px; }
+.mini-cart-items { max-height: 300px; overflow:auto; }
+.mini-cart-item { display:flex; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid #eee; }
+.mini-cart-item img { width:48px; height:48px; object-fit:cover; border-radius:6px; }
+.mini-cart-footer { display:flex; justify-content:space-between; align-items:center; padding-top:8px; }
+.mini-cart .btn { padding: 6px 12px; font-size: 0.9rem; }
+
 .logo-container:hover .brand-name {
     color: #98d8b6;
 }
@@ -200,7 +250,7 @@ nav {
 }
 
 .hero {
-    background-image: url('/images/backgrounds/top.jpg');
+    background-image: url('./images/backgrounds/top.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1045,9 +1095,12 @@ main {
     margin: 20px auto;
 }
 
+/* Avoid anchor overlap with fixed header */
+#main, #catalog, #order, #contacts { scroll-margin-top: 100px; }
+
 /* Оптимизация для высоких экранов */
 @media screen and (min-height: 800px) {
-    .hero {y
+    .hero {
         min-height: 60vh;
         display: flex;
         flex-direction: column;

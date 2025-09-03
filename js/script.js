@@ -1,57 +1,94 @@
+import { products as fallbackProducts } from '../data/products.js';
+import { addToCart, updateCartUI } from './cart.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const menu = document.querySelector('.menu');
 
-    mobileMenuBtn.addEventListener('click', function() {
-        menu.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('active');
-    });
-
-
-    const menuLinks = document.querySelectorAll('.menu a');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
+    if (mobileMenuBtn && menu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            menu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+            const expanded = mobileMenuBtn.classList.contains('active');
+            mobileMenuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
         });
-    });
 
-    const styles = `
-        .mobile-menu-btn {
-            width: 30px;
-            height: 20px;
-            position: relative;
-        }
+        const menuLinks = document.querySelectorAll('.menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
 
-        .mobile-menu-btn span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: #ff69b4;
-            position: absolute;
-            transition: all 0.3s ease;
-        }
+    const grid = document.getElementById('cakes-grid');
+    const categorySelect = document.getElementById('category-filter');
+    const searchInput = document.getElementById('search-input');
 
-        .mobile-menu-btn span:nth-child(1) { top: 0; }
-        .mobile-menu-btn span:nth-child(2) { top: 9px; }
-        .mobile-menu-btn span:nth-child(3) { top: 18px; }
+    function render(list) {
+        if (!grid) return;
+        grid.innerHTML = '';
+        const fragment = document.createDocumentFragment();
+        list.forEach((p) => {
+            const card = document.createElement('div');
+            card.className = 'cake-card';
+            card.innerHTML = `
+                <img src="${p.img}" alt="${p.name}" loading="lazy">
+                <h3>${p.name}</h3>
+                <p class="description">${p.description || ''}</p>
+                <p class="price">Od ${p.price} zł</p>
+                <div style="display:flex;gap:8px;">
+                    <button type="button" class="btn" data-product-id="${p.id}">Do koszyka</button>
+                    <a class="btn" href="./product.html?id=${p.id}" style="background:#555;border-color:#555">Szczegóły</a>
+                </div>
+            `;
+            fragment.appendChild(card);
+        });
+        grid.appendChild(fragment);
+    }
 
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg);
-            top: 9px;
-        }
+    function applyFilters() {
+        const q = (searchInput?.value || '').toLowerCase();
+        const cat = categorySelect?.value || '';
+        const filtered = state.products.filter(p => {
+            const matchCat = !cat || p.category === cat;
+            const matchQ = !q || p.name.toLowerCase().includes(q) || (p.description||'').toLowerCase().includes(q);
+            return matchCat && matchQ;
+        });
+        render(filtered);
+    }
 
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
+    const state = { products: fallbackProducts };
 
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg);
-            top: 9px;
-        }
-    `;
+    async function loadProductsJSON() {
+        try {
+            const res = await fetch('./data/products.json', { cache: 'no-store' });
+            if (res.ok) {
+                const json = await res.json();
+                if (Array.isArray(json) && json.length) {
+                    state.products = json;
+                }
+            }
+        } catch (e) {}
+    }
 
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = styles;
-    document.head.appendChild(styleSheet);
-}); 
+    if (grid) {
+        render(state.products);
+        loadProductsJSON().then(() => applyFilters());
+        grid.addEventListener('click', (e) => {
+            const target = e.target;
+            if (target && target.matches('button[data-product-id]')) {
+                const id = Number(target.getAttribute('data-product-id'));
+                const product = state.products.find(pr => pr.id === id);
+                if (product) addToCart(product);
+            }
+        });
+    }
+
+    categorySelect?.addEventListener('change', applyFilters);
+    searchInput?.addEventListener('input', applyFilters);
+
+    updateCartUI();
+});

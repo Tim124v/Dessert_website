@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pyszne torty na zamówienie</title>
+    <meta name="description" content="Ludziarnia — autorskie torty na zamówienie: czekoladowe, owocowe, urodzinowe i więcej. Szybkie zamówienie i dostawa.">
+    <meta property="og:title" content="Ludziarnia — torty na zamówienie">
+    <meta property="og:description" content="Zamów pyszne torty: czekoladowy, owocowy, urodzinowy, rafaello i inne.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pl_PL">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,12 +22,25 @@
                 <span class="brand-name">Ludziarnia</span>
                 <img src="./images/logo/logo.jpg" alt="Logo" class="logo-image">
             </div>
-            <div class="mobile-menu-btn">
+            <a href="./checkout.html" class="cart-btn" aria-label="Koszyk" title="Koszyk">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" aria-live="polite">0</span>
+                <span class="cart-sum" aria-hidden="true" style="margin-left:8px;font-size:12px;color:#1a365d;opacity:.8">0 zł</span>
+            </a>
+            <div class="mini-cart" id="mini-cart" aria-live="polite">
+                <div class="mini-cart-header">Twój koszyk</div>
+                <div class="mini-cart-items" id="mini-cart-items"></div>
+                <div class="mini-cart-footer">
+                    <span>Suma: <strong id="mini-cart-total">0 zł</strong></span>
+                    <a class="btn" href="./checkout.html">Do kasy</a>
+                </div>
+            </div>
+            <div class="mobile-menu-btn" role="button" aria-label="Otwórz menu" aria-controls="primary-menu" aria-expanded="false" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <ul class="menu">
+            <ul class="menu" id="primary-menu">
                 <li><a href="#main">GŁÓWNA</a></li>
                 <li><a href="#catalog">KATALOG</a></li>
                 <li><a href="#order">ZAMÓW</a></li>
@@ -33,76 +53,23 @@
         <section id="main" class="hero">
             <h1>Autorskie torty na zamówienie</h1>
             <p>Tworzymy arcydzieła na Twoje święta</p>
-            <a href="#order" class="btn">Zamów tort</a>
+            <a href="#order" class="btn">Zamów</a>
         </section>
 
         <section id="catalog" class="catalog">
             <h2>Nasze torty</h2>
-            <div class="cakes-grid">
-                <div class="cake-card">
-                    <img src="./images/catalog/cake.jpg" alt="Tort czekoladowy">
-                    <h3>Tort czekoladowy</h3>
-                    <p class="description">Klasyczny tort z trzema warstwami czekoladowego biszkoptu</p>
-                    <p class="price">Od 150 zł</p>
-                    <button type="button" class="btn">Zamów</button>
-                </div>
-                <div class="cake-card">
-                    <img src="./images/catalog/cake1.jpg" alt="Tort owocowy">
-                    <h3>Tort owocowy</h3>
-                    <p class="description">Lekki tort z świeżymi owocami sezonowymi</p>
-                    <p class="price">Od 250 zł</p>
-                    <button type="button" class="btn">Zamów</button>
-                </div>
-                <div class="cake-card">
-                    <img src="./images/catalog/cake10.jpg" alt="Tort urodzinowy">
-                    <h3>Tort urodzinowy</h3>
-                    <p class="description">Elegancki tort piętrowy na specjalne okazje</p>
-                    <p class="price">Od 350 zł</p>  
-                    <button type="button" class="btn">Zamów</button>
-                </div>
-                <div class="cake-card">
-                    <img src="./images/catalog/cake3.jpg" alt="Tort karmelowy">
-                    <h3>Tort karmelowy</h3>
-                    <p class="description">Delikatny biszkopt z solonym karmelem</p>
-                    <p class="price">Od 220 zł</p>
-                    <button type="button" class="btn">Zamów</button>
-                </div>
-                <div class="cake-card">
-                    <img src="./images/catalog/cake4.jpg" alt="Tort truskawkowy">
-                    <h3>Tort truskawkowy</h3>
-                    <p class="description">Puszysty tort z kremem truskawkowym</p>
-                    <p class="price">Od 230 zł</p>
-                    <button type="button" class="btn">Zamów</button>
-                </div>
-                <div class="cake-card">
-                    <img src="./images/catalog/cake4.jpg" alt="Tort orzechowy">
-                    <h3>Tort orzechowy</h3>
-                    <p class="description">Tort z prażonymi orzechami i karmelem</p>
-                    <p class="price">Od 240 zł</p>
-                    <button type="button" class="btn">Zamów</button>
-                </div>
-                <div class="cake-card">
-                    <img src="./images/catalog/cake9.jpg" alt="Tort rafaello">
-                    <h3>Tort rafaello</h3>
-                    <p class="description">Kokosowy tort z białą czekoladą</p>
-                    <p class="price">Od 260 zł</p>
-                    <button type="button" class="btn">Zamów</button>
-                </div>
-                <div class="cake-card">
-                    <img src="./images/catalog/cake7.jpg" alt="Tort bezowy">
-                    <h3>Tort bezowy</h3>
-                    <p class="description">Klasyczna Pavlova z owocami</p>
-                    <p class="price">Od 200 zł</p>
-                    <button type="button" class="btn">Zamów</button>
-                </div>
-                <div class="cake-card">
-                    <img src="./images/catalog/cake8.jpg" alt="Tort dziecięcy">
-                    <h3>Tort dziecięcy</h3>
-                    <p class="description">Kolorowy tort z dekoracjami dla dzieci</p>
-                    <p class="price">Od 280 zł</p>
-                    <button type="button" class="btn">Zamów</button>
-                </div>
+            <div class="catalog-toolbar" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:12px">
+                <select id="category-filter" aria-label="Kategoria">
+                    <option value="">Wszystkie kategorie</option>
+                    <option value="tradycyjne">Tradycyjne</option>
+                    <option value="owocowe">Owocowe</option>
+                    <option value="musowe">Musowe</option>
+                    <option value="bezowe">Bezowe</option>
+                    <option value="dziecięce">Dziecięce</option>
+                </select>
+                <input id="search-input" type="search" placeholder="Szukaj tortu..." aria-label="Szukaj">
             </div>
+            <div class="cakes-grid" id="cakes-grid"></div>
         </section>
 
         <section id="order" class="order">
@@ -144,6 +111,6 @@
         </div>
     </footer>
 
-    <script src="./js/script.js"></script>
+    <script type="module" src="./js/script.js"></script>
 </body>
 </html>
